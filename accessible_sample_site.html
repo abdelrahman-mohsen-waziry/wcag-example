@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accessible Demo Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #fff;
+      color: #222;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, nav, main, footer {
+      padding: 20px;
+    }
+
+    nav a {
+      margin-right: 20px;
+      color: #0055cc;
+      text-decoration: none;
+    }
+
+    nav a:focus,
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000;
+      color: #fff;
+      padding: 8px;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    .button {
+      background: #0055cc;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button:focus {
+      outline: 3px solid #ffcc00;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 20px;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header>
+    <h1>Accessible Demo Site</h1>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main id="main">
+    <section>
+      <h2>Welcome</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt felis at sapien vehicula, sed facilisis quam eleifend.</p>
+      <img src="office.jpg" alt="Modern office with computers and people working">
+      <a href="#services" class="button">View Services</a>
+    </section>
+
+    <section class="card">
+      <h2>Newsletter Signup</h2>
+      <form aria-labelledby="newsletter-title">
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <button type="submit" class="button">Subscribe</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Feedback</h2>
+      <form aria-labelledby="feedback-title">
+        <label for="feedback">Your feedback:</label><br>
+        <textarea id="feedback" name="feedback" rows="5" cols="40" aria-required="true"></textarea><br>
+        <span class="error" id="feedback-error" aria-live="polite">Required field</span><br><br>
+        <button class="button" type="submit">Send Feedback</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Watch Our Intro</h2>
+      <video controls aria-label="Introduction video about our company">
+        <source src="intro.mp4" type="video/mp4">
+        <track kind="captions" src="captions.vtt" srclang="en" label="English">
+        Your browser does not support the video tag.
+      </video>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Accessible Demo Site</p>
+    <p><a href="#">Accessibility Statement</a></p>
+  </footer>
+
+</body>
+</html>
